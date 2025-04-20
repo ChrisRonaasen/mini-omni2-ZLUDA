@@ -34,7 +34,7 @@ last_video_frame = None
 last_video_frame_ts = time.time()
 
 
-API_URL = os.getenv("API_URL", "http://127.0.0.1:60808/chat")
+API_URL = os.getenv("API_URL", "http://localhost:60808/chat") # fix URL timeout for local server
 API_URL = None if API_URL == "" else API_URL
 
 # recording parameters
@@ -236,7 +236,7 @@ def recording(status):
                 st.session_state.frames.append(temp_audio)
             if dur_vad < 0.1 and start_talking:
                 st.session_state.recording = False
-                print(f"speech end detected. excit")
+                print(f"speech end detected. exit")
             last_temp_audio = temp_audio
             temp_audio = b""
 
